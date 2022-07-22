@@ -16,13 +16,13 @@
         <div class="card-body">
           <ul class="list-group list-group-flush">
             <li class="list-group-item" *ngFor="let message of webSocket.websocketMessage">
-              <span class="user-name">{{message.user}}</span>
+              <span class="user-name">{{message.user}}:   </span>
               <span class="user-message">{{message.message}}</span>
             </li>
           </ul>
         </div>
         <div class="card-footer">
-          <form #wsMessageForm="ngForm" (ngSubmit)="sendmessage(wsMessageForm)" >
+          <form #wsMessageForm="ngForm" (ngSubmit)="sendMessage(wsMessageForm)" >
             <div class="chat-send row">
               <div class="col-2">
                 <input type="text" class="form-control" name="user" id="input-user" ngModel>

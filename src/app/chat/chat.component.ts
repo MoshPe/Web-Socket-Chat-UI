@@ -9,7 +9,7 @@ import { WebsocketChat } from "./chat.component.model";
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  wsNessageForm: NgForm | undefined;
+  wsMessageForm: NgForm | undefined;
 
   constructor(public webSocket: WebSocketService) { }
 
@@ -21,10 +21,9 @@ export class ChatComponent implements OnInit {
     this.webSocket.closeWebsocketConnection();
   }
 
-  sendmessage(wsMessageForm: NgForm) {
+  sendMessage(wsMessageForm: NgForm) {
     const chatMsg = new WebsocketChat(wsMessageForm.value.user, wsMessageForm.value.message);
     this.webSocket.sendWebSocketMessage(chatMsg);
     wsMessageForm.controls['message'].reset();
   }
-
 }
